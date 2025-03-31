@@ -1,0 +1,46 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav mode="side" [opened]="true">
+    <mat-toolbar>Menú</mat-toolbar>
+    <mat-nav-list>
+      <ng-container *ngFor="let item of menuItems">
+        <div class="menu-item">
+          <a mat-list-item *ngIf="!item.children" [routerLink]="item.route">
+            <mat-icon>{{ item.icon }}</mat-icon> {{ item.label }}
+          </a>
+
+          <!-- Submenús -->
+          <div *ngIf="item.children" class="submenu">
+            <button mat-list-item (click)="toggleSubmenu(item)">
+              <mat-icon>{{ item.icon }}</mat-icon> {{ item.label }}
+              <mat-icon class="arrow">{{ item.expanded ? 'expand_less' : 'expand_more' }}</mat-icon>
+            </button>
+            <div *ngIf="item.expanded">
+              <a mat-list-item *ngFor="let child of item.children" [routerLink]="child.route">
+                <mat-icon>{{ child.icon }}</mat-icon> {{ child.label }}
+              </a>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="app-title">Home</span>
+
+      <span class="spacer"></span>
+      <button mat-button class="logout-button" (click)="logout()">
+        <mat-icon>logout</mat-icon> Cerrar Sesión
+      </button>
+    </mat-toolbar>
+    
+    <div class="content">
+      <router-outlet></router-outlet>
+      <app-usuarios></app-usuarios>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

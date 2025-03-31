@@ -1,0 +1,111 @@
+.pinner-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(254, 254, 254);
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14),
+   0 3px 14px 2px rgba(0, 0, 0, 0.12);
+
+  width: 100%;
+  height: 300px;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+  padding: 20px;
+}
+
+mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: black;
+  color: white;
+}
+
+.spacer {
+  flex: 1;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.view-orders {
+  color: red;
+  margin-right: 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.new-order {
+  color: green;
+  margin-right: 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.mat-table {
+  width: 100%;
+  background: white;
+}
+
+.mat-header-cell {
+  font-weight: bold;
+  text-align: left;
+}
+
+.filter-container {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.logout-button {
+  background-color: #3163f0;
+  color: white !important; /* Asegura que el texto sea visible */
+  padding: 8px 16px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Espacio entre icono y texto */
+  transition: background-color 0.3s ease-in-out;
+  height: 60px;
+}
+
+.logout-button mat-icon {
+  font-size: 25px;
+}
+.action-buttons {
+  padding: 11px;
+  display: flex;
+  gap: 8px; /* Espacio entre botones */
+  justify-content: center; /* Centra los botones horizontalmente */
+  align-items: center;
+}
+
+.actions-cell {
+  display: flex;
+  gap: 8px; /* Espacio entre botones */
+  justify-content: center; /* Alineación en el centro */
+}
+
+.Edit:hover{
+  background-color: rgba(0, 0, 0, 0.1); /* Color de fondo suave */
+  transform: scale(1.2); /* Aumenta el tamaño un poco */
+  cursor: pointer;
+}
+
+.Delete:hover{
+  background-color: rgba(0, 0, 0, 0.1); /* Color de fondo suave */
+  transform: scale(1.2); /* Aumenta el tamaño un poco */
+  cursor: pointer;
+}
+
+/* Eliminar bordes y sombras de los botones */
+mat-icon-button {
+  border: none;
+  outline: none;
+  background: transparent;
+}

@@ -1,0 +1,20 @@
+.container {
+  min-height: 100vh;
+}
+
+.login-card {
+  width: 400px;
+  background: white;
+  border-radius: 12px;
+}
+
+.mat-mdc-form-field {
+  width: 100%;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+  

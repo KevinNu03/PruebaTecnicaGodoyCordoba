@@ -1,0 +1,71 @@
+:host {
+  display: block;
+  height: 100vh; /* Ocupa toda la pantalla */
+  width: 100%;
+}
+
+.sidenav-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+mat-sidenav {
+  width: 250px; /* Ajusta el ancho del menú */
+}
+
+mat-sidenav-content {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: auto;
+}
+
+/* Asegura que el menú lateral ocupe toda la pantalla */
+.menu-list {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Cierra sesión dentro del menú lateral (si lo necesitas ahí también) */
+.logout {
+  margin-top: auto; /* Lo empuja al final */
+  padding: 10px 0;
+}
+
+/* Ajustes para la barra superior */
+mat-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Distribuye los elementos */
+  padding: 0 16px;
+}
+
+/* Ajuste para empujar "Cerrar Sesión" a la derecha */
+.spacer {
+  flex-grow: 1;
+}
+
+/* Estilo del botón de cerrar sesión */
+.logout-button {
+  background-color: lightblue;
+  color: white !important; /* Asegura que el texto sea visible */
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Espacio entre icono y texto */
+  transition: background-color 0.3s ease-in-out;
+}
+
+/*Efecto hover para mejorar visibilidad */
+.logout-button:hover {
+  background-color: #3163f0
+}
+
+/*Ajuste para el icono dentro del botón */
+.logout-button mat-icon {
+  font-size: 20px;
+}

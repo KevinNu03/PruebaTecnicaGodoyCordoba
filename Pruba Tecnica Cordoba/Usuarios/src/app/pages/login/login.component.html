@@ -1,0 +1,35 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow-lg p-4 login-card">
+      <h2 class="text-center mb-3">🔐 Iniciar Sesión</h2>
+  
+      <form [formGroup]="loginForm" >
+        <div class="mb-3">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Correo Electrónico</mat-label>
+            <input matInput formControlName="correoElectronico" type="email" placeholder="tucorreo@example.com">
+            <mat-error *ngIf="loginForm.get('correoElectronico')?.invalid">Correo inválido</mat-error>
+          </mat-form-field>
+        </div>
+  
+        <div class="mb-3">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Contraseña</mat-label>
+            <input matInput formControlName="contrasena" [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide">
+              <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+            <mat-error *ngIf="loginForm.get('contrasena')?.invalid">Mínimo 8 caracteres</mat-error>
+          </mat-form-field>
+        </div>
+  
+        <button mat-raised-button color="primary" class="w-100 mb-2" (click)="onLogin()" [disabled]="loginForm.invalid">
+          <mat-icon class="me-2">login</mat-icon> Ingresar
+        </button>
+
+        <button mat-stroked-button color="accent" class="w-100" (click)="goToRegister()">
+          <mat-icon class="me-2">person_add</mat-icon> Registrarse
+        </button>
+      </form>
+    </div>
+  </div>
+  

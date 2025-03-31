@@ -1,0 +1,71 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow-lg p-4 register-card">
+      <h2 class="text-center mb-3">Editar Usuario</h2>
+  
+      <form [formGroup]="registerForm">
+        <div class="mb-3">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Nombre</mat-label>
+            <input matInput formControlName="Nombre" type="text" placeholder="Tu nombre">
+            <mat-error *ngIf="registerForm.get('Nombre')?.invalid">Máximo 100 caracteres</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="mb-3">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Apellido</mat-label>
+              <input matInput formControlName="Apellido" type="text" placeholder="Tu Apellido">
+              <mat-error *ngIf="registerForm.get('Apellido')?.invalid">Máximo 100 caracteres</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="mb-3">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Cedula</mat-label>
+            <input matInput formControlName="Cedula" type="number" placeholder="Tu Cedula">
+            <mat-error *ngIf="registerForm.get('Cedula')?.invalid">Máximo 15 dígitos</mat-error>
+          </mat-form-field>
+        </div>
+  
+        <div class="mb-3">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Correo Electrónico</mat-label>
+            <input matInput formControlName="CorreoElectronico" type="email" placeholder="tucorreo@example.com">
+            <mat-error *ngIf="registerForm.get('CorreoElectronico')?.invalid">Correo inválido</mat-error>
+          </mat-form-field>
+        </div>
+  
+        <div class="mb-3">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Contraseña</mat-label>
+            <input matInput formControlName="Contrasena" [type]="hidePassword() ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hidePassword.set(!hidePassword())">
+              <mat-icon>{{ hidePassword() ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+            <mat-error *ngIf="registerForm.get('Contrasena')?.invalid">Mínimo 8 caracteres</mat-error>
+          </mat-form-field>
+        </div>
+  
+        <div class="mb-3">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Confirmar Contraseña</mat-label>
+            <input (change)="onChangePaswword($event)" matInput formControlName="confirmarContrasena" [type]="hideConfirmPassword() ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hideConfirmPassword.set(!hideConfirmPassword())">
+              <mat-icon>{{ hideConfirmPassword() ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+            <mat-error *ngIf="registerForm.get('confirmarContrasena')?.invalid">Debes confirmar la contraseña</mat-error>
+          </mat-form-field>
+          <mat-label *ngIf="passwordMatch" class="noMatch">Las contraseñas no coinciden</mat-label>
+        </div>
+  
+        <button mat-raised-button color="primary" class="w-100 mb-2" (click)="onCreate()" [disabled]="registerForm.invalid || passwordMatch">
+          <mat-icon class="me-2">edit_square</mat-icon> Editar Usuario
+        </button>
+  
+        <button mat-stroked-button color="warn" class="w-100 close-button" (click)="CloseModal()">
+            <mat-icon class="me-2">cancel</mat-icon> Cerrar
+          </button>
+      </form>
+    </div>
+</div>
+  
