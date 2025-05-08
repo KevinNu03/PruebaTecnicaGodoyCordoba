@@ -9,7 +9,6 @@ import { MenuItem } from '../../models/Menu';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { publicRoutes } from '../../../core/public-private-routes';
 import { LocalStorageService } from '../../Services/local-storage.service';
-import { UsuariosComponent } from '../../../pages/usuarios/usuarios.component';
 
 @Component({
   selector: 'app-menu',
@@ -21,8 +20,7 @@ import { UsuariosComponent } from '../../../pages/usuarios/usuarios.component';
     MatListModule,
     MatButtonModule,
     RouterLink,
-    RouterOutlet,
-    UsuariosComponent
+    RouterOutlet
   ],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.css'
@@ -38,7 +36,7 @@ export class MenuComponent {
 
   menuItems: MenuItem[] = [
     { icon: 'home', label: 'Inicio', route: `/${publicRoutes.HOME}` },
-    { icon: 'person', label: 'Usuario' },
+    { icon: 'person', label: 'Usuario', route: `/${publicRoutes.USUARIO}` },
   ];
 
   toggleSidenav() {
